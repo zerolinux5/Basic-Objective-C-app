@@ -19,9 +19,23 @@ int main(int argc, const char * argv[])
         answer = arc4random() % 100 + 1;
         //NSLog(@"The random value is %i",answer);
         
-        NSLog(@"Enter a number between 1 and 100");
-        scanf("%i", &guess);
-        //NSLog(@"You entered: %i", guess);
+        while (guess != answer) {
+            turn++;
+            
+            NSLog(@"Guess #%i: Enter a number between 1 and 100", turn);
+            scanf("%i", &guess);
+        
+            if (guess > answer){
+                NSLog(@"Lower!");
+            } else if (guess < answer) {
+                NSLog(@"Higher!");
+            } else {
+                NSLog(@"Correct! The answer was %i", answer);
+            }
+            
+        }
+        
+        NSLog(@"It took you %i tries", turn);
         
     }
     return 0;
